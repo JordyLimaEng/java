@@ -12,11 +12,11 @@ public class DB {
 	private static Connection conn = null;
 
 	public static Connection getConnection() {// implementação do método apra gerar coneção no bd
-		if (conn == null) {// se conecção ainda é nula
+		if (conn == null) {// se conexão ainda é nula
 			try {
 				Properties props = loadProperties(); // propriedades do banco
 				String url = props.getProperty("dburl");// url do banco
-				conn = DriverManager.getConnection(url, props);// conecção com o banco (instanciar um obj do tipo
+				conn = DriverManager.getConnection(url, props);// conexão com o banco (instanciar um obj do tipo
 																// connection)
 			} catch (SQLException e) {
 				throw new DbException(e.getMessage());
@@ -25,7 +25,7 @@ public class DB {
 		return conn;
 	}
 
-	public static void closeConnection() { // para fechar a coneção com o banco
+	public static void closeConnection() { // para fechar a conexão com o banco
 		if (conn != null) {
 			try {
 				conn.close();

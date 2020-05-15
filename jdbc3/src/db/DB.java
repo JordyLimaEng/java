@@ -14,7 +14,7 @@ public class DB {
 	private static Connection conn = null;
 
 	public static Connection getConnection() {// implementação do método apra gerar conexão no bd
-		if (conn == null) {// se conexão ainda é nula
+		if (conn == null) {// se conecção ainda é nula
 			try {
 				Properties props = loadProperties(); // propriedades do banco
 				String url = props.getProperty("dburl");// url do banco
