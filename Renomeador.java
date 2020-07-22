@@ -12,43 +12,29 @@ public class Renomeador {
 
 	public static void main(String[] args) {
 		
-		//a variável x representa o número do episódio
-		for (int x = 1; x <= 22; x++) {
+				//pega todos os arquivos de um diretório e renomeia para um nome ou sequência requerida
 
-			if(x>=1 && x<=9) {//para episodios até o numero 9
-				File NomeAntigo = new File("C:\\Users\\Jordy\\DownloadsTorrents\\TMOC T4\\Todo.Mundo.Odeia.o.Chris.T04E0"+x+".WEB-DL.720p.Dublado.WWW.TORRRENTDOSFILMES.COM.mkv");
-				File NomeAtual = new File("C:\\Users\\Jordy\\DownloadsTorrents\\TMOC T4\\T04E0"+x+".mkv");
-				Scanner sc = null;
+				File dir = new File("C:\\Users\\Jordy\\Documents\\React-Native\\catalogo\\src\\images");//arquivos de origem
 
-				try {
-					if (NomeAntigo.renameTo(NomeAtual)) {
-						System.out.println(NomeAntigo.getName() + " -> " + NomeAtual.getName());
-					} else {
-						System.out.println("Não foi possivel renomear");
-					}
-				} finally {// independente do resultado executa o finally
-					if (sc != null) {
-						sc.close();
-					}
-				}
-			}else{//para episodios maiores que 9
-				File NomeAntigo = new File("C:\\Users\\Jordy\\DownloadsTorrents\\TMOC T4\\Todo.Mundo.Odeia.o.Chris.T04E"+x+".WEB-DL.720p.Dublado.WWW.TORRRENTDOSFILMES.COM.mkv");
-				File NomeAtual = new File("C:\\Users\\Jordy\\DownloadsTorrents\\TMOC T4\\T04E"+x+".mkv");
-				Scanner sc = null;
-
-				try {
-					if (NomeAntigo.renameTo(NomeAtual)) {
-						System.out.println(NomeAntigo.getName() + " -> " + NomeAtual.getName());
-					} else {
-						System.out.println("Não foi possivel renomear");
-					}
-				} finally {// independente do resultado executa o finally
-					if (sc != null) {
-						sc.close();
-					}
+				int indice = 0;
+		
+				if (dir.isDirectory()) { // verifica se é diretório
+					for (final File f : dir.listFiles()) {
+						try {
+							indice++;
+							File newfile = new File("C:\\Users\\Jordy\\Documents\\React-Native\\catalogo\\src\\images\\" + indice + ".jpg");//local e arquivos onde vai salvar
+		
+							if (f.renameTo(newfile)) {
+								System.out.println("Arquivo renomeado");
+							} else {
+								System.out.println("Não foi possível renomear");
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 				}
 			}
-
+				
 		}
 		
-	}
+}
