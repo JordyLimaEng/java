@@ -24,12 +24,7 @@ public class Renomeador {
 				try {
 					indice++;
 					File newfile = new File(
-							"C:\\Users\\Jordy\\Documents\\React-Native\\catalogo\\src\\images\\" + indice + ".jpg");// local
-																													// e
-																													// arquivos
-																													// onde
-																													// vai
-																													// salvar
+							"C:\\Users\\Jordy\\Documents\\React-Native\\catalogo\\src\\images\\" + indice + ".jpg");// local e arquivos onde vai salvar
 
 					if (f.renameTo(newfile)) {
 						System.out.println("Arquivo renomeado");
